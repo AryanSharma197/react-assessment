@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
+import BasketballPlayerCard from './components/BasketballPlayerCard';
+import players from './data/playersData';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {players.map((player) => (
+        <BasketballPlayerCard
+          key={player.name}
+          name={player.name}
+          image={player.image}
+          position={player.position}
+          stats={player.stats}
+        />
+      ))}
     </div>
   );
 }
